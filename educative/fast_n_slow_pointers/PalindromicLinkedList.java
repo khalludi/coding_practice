@@ -21,7 +21,7 @@ class PalindromicLinkedList {
     }
 
     // Reverse half of it
-    ListNode prev = slowPtr.next;
+    ListNode prev = null;
     slowPtr = slowPtr.next;
     while(slowPtr != null) {
       ListNode next = slowPtr.next;
@@ -29,12 +29,31 @@ class PalindromicLinkedList {
       prev = slowPtr;
       slowPtr = next;
     }
+    
+    ListNode copyHalf = prev; // Store extra copy
 
     // Check
+    boolean ret = true;
+    ListNode startPtr = head;
+    while (prev != null) {
+      if (startPtr.value != prev.value) {
+        ret = false;
+        break;
+      }
+      prev = prev.next;
+      startPtr = startPtr.next;
+    }
 
     // Reverse back
+    prev = null;
+    while (copyHalf != null) {
+      ListNode next = copyHalf.next;
+      copyHalf.next = prev;
+      prev = copyHalf;
+      copyHalf = next;
+    }
 
-    return false;
+    return ret;
   }
 
   public static void main(String[] args) {
