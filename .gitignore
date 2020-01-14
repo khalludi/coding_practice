@@ -1,3 +1,8 @@
+# C file extension ignore
+*.o
+*.bin
+os-image
+
 # Compiled class file
 *.class
 
