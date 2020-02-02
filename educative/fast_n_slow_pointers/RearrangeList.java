@@ -1,13 +1,3 @@
-
-class ListNode {
-  int value = 0;
-  ListNode next;
-
-  ListNode(int value) {
-    this.value = value;
-  }
-}
-
 class RearrangeList {
 
   public static void reorder(ListNode head) {
